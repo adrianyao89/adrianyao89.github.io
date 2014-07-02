@@ -1,8 +1,8 @@
 $WS.connect({
 	key: "message",
-	url: "ws://www.cllz.com:8080/websocket/message",
+	url: "ws://localhost:8080/webchat/cbus",
 	onopen: function(event) {
-		this.send('A new user joined!');
+		this.send('{"header":{"type": "request", "uid": "111111111"},  "module":{"name":"oauth", "action":"login", "data": {"username":"adrian", "password":"abc123_"}}}');
 	},
 	onmessage: function(event) {
 		$("#content").append('<p>'+event.data+'</p>');
