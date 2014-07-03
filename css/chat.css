@@ -1,5 +1,13 @@
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
 .main-div {
-	height: 768px;
+	min-height: 100%;
 	background-color: #c9c9c9;
 }
 
@@ -18,19 +26,10 @@
 	margin: auto;
 }
 
-.chat-win-theme {
-	background-color: #63B8FF;
-	-webkit-border-radius:5px;
-}
-
 .chat-win-top-bar {
 	height: 30px;
 }
 
-.chat-win-top-bar-theme {
-	background-color: rgba(98, 153, 204, 1);
-	-webkit-border-radius: 5px 5px 0 0;
-}
 
 .chat-win-operation{
 	float: right;
@@ -42,54 +41,73 @@
 
 .chat-content-view {
 	height: 320px;
-}
-
-.chat-content-view-theme {
-	background-color: white;
-	margin: 0 0 10px 0;
+	max-height: 320px;
+	overflow:scroll;
+	overflow-x: hidden;
 }
 
 .chat-middle-tool {
 	height: 18px;
 }
 
-.chat-middle-tool-theme {
-
-}
-
 .chat-send-box {
 	height: 85px;
 }
 
-.chat-send-box-theme {
-	background-color: white;
+.chat-record {
+	margin: 5px;
 }
 
-.chat-send-button-theme {
+.chat-record-header {
+	width: 45px;
+	height: 45px;
+	max-width: 45px;
+	max-height: 45px;
+	float: left;
+}
+
+.chat-record-title {
+	margin-bottom: 5px;
+}
+
+.chat-record-content {
+	padding: 10px;
+	float: left;
+	max-width: 450px;
+	margin-bottom: 10px;
+}
+
+.chat-my-record {
+	margin: 5px;
+}
+
+.chat-my-record-header {
+	width: 45px;
+	height: 45px;
+	max-width: 45px;
+	max-height: 45px;
 	float: right;
-	margin-top: 4px;
-	margin-right: 15px;
-	width: 80px;
-	height: 24px;
 }
 
-.chat-send-input-theme {
+.chat-my-record-content {
+	padding: 10px;
+	float: right;
+	max-width: 450px;
+}
+
+.chat-send-input {
 	margin: 0;
 	width: 100%;
 	height: 320px;
 	max-width: 100%;
 	max-height: 85px;
-	resize:none;
 }
 
-.chat-record-theme {
-	margin: 5px;
-	background-color: white;
+.login-message {
+	position: absolute;
+	margin-left: 98px;
 }
 
-.chat-record-header {
-	width: 60px;
-	height: 60px;
-	max-width: 60px;
-	max-height: 60px;
+.login-message p {
+	padding: 7px;
 }
