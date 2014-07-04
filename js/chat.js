@@ -6,8 +6,6 @@ function showMessage(id, message) {
 	}, 2000);
 }
 
-
-
 $(document).ready(function(){
 	var socketKey = "message";
 
@@ -43,6 +41,33 @@ $(document).ready(function(){
 		var message = $("#chat-message").val('');
 	});
 
+	function sendMessage() {
+		var user = $.parseJSON(localStorage.user);
+		var message = $("#chat-send-box").val();
+		var protocol = {
+			header: {
+				type: "request",
+				token: user.token.token
+			},
+			"module": {
+				name: "chat",
+				action: "group",
+				data: {
+					groupId: 1,
+					userId: user.id,
+					name: user.name,
+					message: message
+				}
+			}
+		};
+		$WS.repos[socketKey].send(JSON.stringify(protocol));
+
+		var pup = '<div class="chat-my-record chat-my-record-theme clearfix"><img src="http://adrianyao.qiniudn.com/default.jpg" alt="..." class="chat-my-record-header"><p class="alert alert-info chat-my-record-content chat-my-record-content-theme">'+message+'</p></div>'
+		$("#chat-send-box").val("");
+		$("#chat-content-view").append(pup);
+		$("#chat-content-view").scrollTop($("#chat-content-view")[0].scrollHeight);
+	}
+
     
 
     $("#login-button").bind('click', function() {
@@ -69,30 +94,12 @@ $(document).ready(function(){
     	});
     });
 
-    $("#chat-send-button").bind('click', function() {
-    	var user = $.parseJSON(localStorage.user);
-    	var message = $("#chat-send-box").val();
-    	var protocol = {
-    		header: {
-    			type: "request",
-    			token: user.token.token
-    		},
-    		"module": {
-    			name: "chat",
-    			action: "group",
-    			data: {
-    				groupId: 1,
-    				userId: user.id,
-    				name: user.name,
-    				message: message
-    			}
-    		}
-    	};
-    	$WS.repos[socketKey].send(JSON.stringify(protocol));
 
-    	var pup = '<div class="chat-my-record chat-my-record-theme clearfix"><img src="http://adrianyao.qiniudn.com/default.jpg" alt="..." class="chat-my-record-header"><p class="alert alert-info chat-my-record-content chat-my-record-content-theme">'+message+'</p></div>'
-    	$("#chat-send-box").val("");
-    	$("#chat-content-view").append(pup);
-    	$("#chat-content-view").scrollTop($("#chat-content-view")[0].scrollHeight);
+    $("#chat-send-button").bind('click', sendMessage);
+
+    $("#chat-send-box").keydown(function(e) {
+            if (e.keyCode == 13 && e.ctrlKey) {  
+                sendMessage();
+            } 
     });
 });
