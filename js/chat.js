@@ -13,7 +13,7 @@ $(document).ready(function(){
 
 	$WS.connect({
 		key: socketKey,
-		url: "ws://www.cllz.com:8080/webchat/cbus",
+		url: "ws://192.157.229.101:8080/webchat/cbus",
 		onopen: function(event) {
 			
 		},
