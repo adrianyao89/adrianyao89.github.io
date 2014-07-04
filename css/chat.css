@@ -112,6 +112,6 @@ body {
 	padding: 7px;
 }
 
-.chat-record-theme,.chat-my-record-theme img {
+.chat-record-theme img,.chat-my-record-theme img {
 	max-width: 400px;
 }
