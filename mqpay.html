@@ -542,9 +542,13 @@ a.list-group-item:hover {
 <p>当支付系统调用发布接口后，消息中心会把支付消息进行一些字段的补齐，然后封装为一段json字符串放入队列中。<br>消息接收方可以对json字符串进行解析，进行自己的逻辑。<br>JSON字符串如下：</p>
 <pre><code>{
     &quot;appid&quot;: &quot;90492204020130424140720881100&quot;,
+    &quot;appindex&quot;: &quot;175573&quot;,
     &quot;appname&quot;: &quot;彩票365&quot;,
+    &quot;bigpaytype&quot;: 1,
+    &quot;channelid&quot;: &quot;12243&quot;,
     &quot;cityid&quot;: &quot;21&quot;,
     &quot;cpid&quot;: &quot;86003062&quot;,
+    &quot;cpparam&quot;: &quot;000000000000&quot;,
     &quot;developername&quot;: &quot;溢彩阳光（北京）科技有限公司&quot;,
     &quot;hret&quot;: &quot;0&quot;,
     &quot;imsi&quot;: &quot;460012150400954&quot;,
@@ -556,17 +560,13 @@ a.list-group-item:hover {
     &quot;recordindex&quot;: &quot;39894704&quot;,
     &quot;result&quot;: &quot;0&quot;,
     &quot;returncode&quot;: &quot;00000&quot;,
+    &quot;sdkversion&quot;: &quot;120&quot;,
     &quot;serviceid&quot;: &quot;140530038034&quot;,
     &quot;servicename&quot;: &quot;充值4元彩金&quot;,
     &quot;status&quot;: &quot;0&quot;,
+    &quot;subbigpaytype&quot;: 1,
     &quot;usercode&quot;: &quot;15502155121&quot;,
-    &quot;appindex&quot;: &quot;2312312&quot;,
-    &quot;sdkversion&quot;: &quot;1201&quot;,
-    &quot;vaccode&quot;: &quot;143&quot;,
-    &quot;cpparam&quot;: &quot;15502155121&quot;,
-    &quot;bigpaytype&quot;: 1,
-    &quot;subbigpaytype&quot;: 11,
-    &quot;channelid&quot;: &quot;3412&quot;
+    &quot;vaccode&quot;: &quot;2100079820&quot;
 }</code></pre>
 <table>
 <thead>
@@ -745,7 +745,7 @@ a.list-group-item:hover {
 <td>Integer</td>
 <td>N/A</td>
 <td>必选</td>
-<td>大数据支付类型</td>
+<td>大数据支付类型,0-短代 1-在线 2-代支付 3-按次代缴 4-真包月 5-渠道 6-短短代 999-不处理</td>
 </tr>
 <tr>
 <td>subbigpaytype</td>
