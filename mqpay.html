@@ -404,6 +404,46 @@ a.list-group-item:hover {
 </head>
 <body>
 <h1 id="-">消息中心</h1>
+<h2 id="-">部署安装</h2>
+<h3 id="-">硬件</h3>
+<p>3台服务器，配置如下：</p>
+<pre><code>CPU型号: Intel(R) Xeon(R) CPU E5-2640 v2 @ 2.00GHz
+CPU数量: 32
+内存：   128G
+硬盘：   1T
+系统：   Ubuntu 12.04 64Bit
+内网IP:  10.95.196.239, 10.95.196.240, 10.95.196.249</code></pre>
+<h3 id="rabbitmq-">RabbitMQ部署</h3>
+<ol>
+<li><p>安装erlang</p>
+<blockquote>
+<p>$ sudo apt-get update<br>$ sudo apt-get install erlang</p>
+</blockquote>
+</li>
+<li><p>安装最新rabbitMQ</p>
+<blockquote>
+<p>$ sudo vim /etc/hosts</p>
+<pre><code>添加
+10.95.196.239 pay-rabbitmq-1
+10.95.196.240 pay-rabbitmq-2
+10.95.196.249 pay-rabbitmq-3</code></pre>
+<p>$ sudo vim /etc/hostname</p>
+<pre><code>10.95.196.239上替换为   pay-rabbitmq-1
+10.95.196.240上替换为   pay-rabbitmq-2
+10.95.196.249上替换为   pay-rabbitmq-3</code></pre>
+<p>$ sudo reboot<br>$ sudo vim /etc/apt/sources.list</p>
+<pre><code>添加 
+deb http://www.rabbitmq.com/debian/ testing main</code></pre>
+<p>$ wget <a href="http://www.rabbitmq.com/rabbitmq-signing-key-public.asc">http://www.rabbitmq.com/rabbitmq-signing-key-public.asc</a><br>$ sudo apt-key add rabbitmq-signing-key-public.asc<br>$ sudo apt-get update<br>$ sudo apt-get install rabbitmq-server<br>$ wget <a href="http://pubres.qiniudn.com/rabbitmq.config">http://pubres.qiniudn.com/rabbitmq.config</a><br>$ sudo mv /etc/rabbitmq/rabbitmq.config /etc/rabbitmq/rabbitmq.config.bak<br>$ sudo cp rabbitmq.config /etc/rabbitmq/rabbitmq.config<br>$ sudo service rabbitmq-server stop<br>$ sudo vi /var/lib/rabbitmq/.erlang.cookie</p>
+<pre><code>将内容替换为 JVKCZCBLDJJRRGFOFEAL</code></pre>
+<p>$ sudo rm /var/lib/rabbitmq/mnesia/*<br>$ sudo service rabbitmq-server start</p>
+<p>在10.95.196.239上执行下面操作<br>$ sudo rabbitmqctl stop_app<br>$ sudo rabbitmqctl reset<br>$ sudo rabbitmqctl join_cluster --ram rabbit@pay-rabbitmq-3<br>$ sudo rabbitmqctl start_app</p>
+<p>在10.95.196.240上执行下面操作<br>$ sudo rabbitmqctl stop_app<br>$ sudo rabbitmqctl reset<br>$ sudo rabbitmqctl join_cluster --ram rabbit@pay-rabbitmq-3<br>$ sudo rabbitmqctl start_app</p>
+<p>访问 <a href="http://140.206.176.29:15672/" title="rabbitmq管理页面"><a href="http://140.206.176.29:15672/">http://140.206.176.29:15672/</a></a> 来配置集群。</p>
+<pre><code>默认用户名密码都是 guest</code></pre>
+</blockquote>
+</li>
+</ol>
 <h2 id="-">支付消息发布接口</h2>
 <p>为了方便支付接口的接入，我们提供了Http的接口，用于发布支付消息。</p>
 <h3 id="-">请求地址</h3>
@@ -605,7 +645,7 @@ a.list-group-item:hover {
 <td>Interger</td>
 <td>Max(3)</td>
 <td>必选</td>
-<td>计费接口类型，必选。0-短代，1-在线VAC，2-老版在线VAC，3-渠道支付，4-代支付， 5-短短代，6-按次代缴，7-真包月，8-代支付按次代缴，9-代支付真包月，10-cpApi支付，11-tv支付，101-支付宝， 102-神州付，103-爱游戏，104-和游戏等</td>
+<td>计费接口类型，必选。0-短代，1-在线VAC，2-老版在线VAC，3-渠道支付，4-代支付， 5-短短代，6-按次代缴，7-真包月，8-代支付按次代缴，9-代支付真包月，10-cpApi支付，11-tv支付，101-支付宝， 102-神州付，103-爱游戏，104-和游戏，105-和游戏短代，106-和游戏在线，107-天翼支付，108-微软支付等</td>
 </tr>
 <tr>
 <td>cpid</td>
@@ -763,6 +803,34 @@ a.list-group-item:hover {
 </tr>
 </tbody>
 </table>
+<h2 id="-">已使用业务说明</h2>
+<h3 id="-">消息发布者：</h3>
+<ol>
+<li>支付系统发布交易记录</li>
+</ol>
+<h3 id="-">消息接收者：</h3>
+<ol>
+<li>大数据接收支付记录</li>
+<li>微信客服系统接收支付记录</li>
+</ol>
+<h2 id="-">其他</h2>
+<ol>
+<li>微信客服有一推送消息进程放在了10.95.196.239服务器上<pre><code>启动命令为
+$ cd /home/ituser/Downloads
+$ java -server -jar weichat.jar
+关闭进程
+$ ps aux|grep &quot;java -server -jar weichat.jar&quot;
+$ kill -9 进程号</code></pre>
+如需修改推送地址可以修改<pre><code>$ vi /home/ituser/Downloads/spring-content.xml
+修改url
+ &lt;bean id=&quot;specialQueueHandler&quot; class=&quot;com.unicom.mqcenter.handler.SpecialQueueHandler&quot;&gt;
+     &lt;property name=&quot;restTemplate&quot; ref=&quot;restTemplate&quot; &gt;&lt;/property&gt;
+     &lt;property name=&quot;url&quot;&gt;
+             &lt;value&gt;http://10.95.218.150/wei/paynotify&lt;/value&gt;
+     &lt;/property&gt;
+ &lt;/bean&gt;</code></pre>
+</li>
+</ol>
 
 </body>
 </html>
