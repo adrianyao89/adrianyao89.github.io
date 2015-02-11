@@ -2,31 +2,29 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/wobi.css">
+        <script type="text/javascript" src="js/wobi.js"></script>
     </head>
-    <style type="text/css">
-	  .clearfix:before,
-	  .clearfix:after {
-	     content: ".";
-	     display: block;
-	     height: 0;
-	     visibility: hidden;
-	  }
-	  .clearfix:after {clear: both;}
-	  .clearfix {zoom: 1;} /* IE < 8 */
-    </style>
     <body style="background-color: rgba(0, 0, 0, 0);">
-    <div>
+    <div id="container" style="display:block">
     	<div class="toolbar clearfix">
-    		<img style="float:right;width:10%" src="images/accountsdk_2_charge_ad_btn_close.png">
+            <div class="recharge_close_button" touchstart="pressCloseButton(this)" touchend="unPressCloseButton(this)"></div>
     	</div>
-    	<div class="content" style="width:90%;margin:auto;">
-    		<img style="width:100%;" src="images/accountsdk_2_charge_ad_bg.png">
+    	<div class="content">
+            <div class="recharge_content"></div>
     	</div>
-    	<div class="recharge" style="width:90%;margin:auto;">
-    		<img style="width:80%;margin:auto;margin-top:2%;display:block;" src="images/accountsdk_2_charge_ad_btn_action.png">
+    	<div class="footer">
+            <div class="recharge_button"></div>
     	</div>
     </div>
     </body>
     <script type="text/javascript">
+        window.onload = function(){
+            var winHeight = window.screen.height;
+            var div = document.getElementById("container");
+            div.style.width="100%";
+            div.style.height=winHeight + "px";
+        }
 	</script>
 </html>
