@@ -1,0 +1,56 @@
+body{
+	margin: 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+.clearfix:after {clear: both;}
+.clearfix {zoom: 1;} /* IE < 8 */
+
+.toolbar {
+	height: 6.5%;
+}
+
+.toolbar .recharge_close_button {
+	float:right;
+	width:10%;
+	height:100%;
+	background-image: url("../images/accountsdk_2_charge_ad_btn_close.png");
+	background-repeat: round;
+}
+
+.content {
+	height: 70%;
+	width: 90%;
+	margin: auto;
+	
+}
+
+.content .recharge_content {
+	width:100%;
+	height:100%;
+	display:block;
+	background-image: url("../images/accountsdk_2_charge_ad_bg.png");
+	background-repeat: round;
+}
+
+.footer {
+	height: 20%;
+	width: 90%;
+	margin: auto;
+}
+
+.footer .recharge_button {
+	width:80%;
+	height:62%;
+	margin:auto;
+	margin-top:3.5%;
+	display:block;
+	background-image: url("../images/accountsdk_2_charge_ad_btn_action.png");
+	background-repeat: round;
+}
