@@ -9,22 +9,29 @@
     <body style="background-color: rgba(0, 0, 0, 0);">
     <div id="container" style="display:block">
     	<div class="toolbar clearfix">
-            <div class="recharge_close_button" touchstart="pressCloseButton(this)" touchend="unPressCloseButton(this)"></div>
+            <div id="closeButton" class="recharge_close_button"></div>
     	</div>
     	<div class="content">
             <div class="recharge_content"></div>
+            <div class="recharge_agreement clearfix">
+                <div class="recharge_agreement_content"><span>点击查看活动规则</span></div>
+                <div class="recharge_agreement_tip"><div id="rechargeAgreementCheckbox" class="recharge_agreement_checkbox"></div><span>本次活动不在提示</span></div>
+            </div>
+            <div class="recharge_content_text">
+                <div id="textTitle" class="content_text_title">活动内容</div>
+                <div id="textDesc" class="content_text_desc">每次单笔充值沃币,立即返还,<br>充值越多送越多</div>
+                <div class="content_text_detail clearfix">
+                    <div class="content_text_detail_item"><span class="detail_normal">充</span><span class="detail_special">1000</span><span class="detail_normal">送</span><span class="detail_special">20</span><span class="detail_normal">%</span></div>
+                    <div class="content_text_detail_item content_text_detail_item_right"><span class="detail_normal">充</span><span class="detail_special">200</span><span class="detail_normal">送</span><span class="detail_special">9</span><span class="detail_normal">%</span></div>
+                    <div class="content_text_detail_item"><span class="detail_normal">充</span><span class="detail_special">500</span><span class="detail_normal">送</span><span class="detail_special">15</span><span class="detail_normal">%</span></div>
+                    <div class="content_text_detail_item content_text_detail_item_right"><span class="detail_normal">充</span><span class="detail_special">100</span><span class="detail_normal">送</span><span class="detail_special">7</span><span class="detail_normal">%</span></div>
+                    <div class="content_text_detail_item"><span class="detail_normal">充</span><span class="detail_special">300</span><span class="detail_normal">送</span><span class="detail_special">11</span><span class="detail_normal">%</span></div>
+                </div>
+            </div>
     	</div>
     	<div class="footer">
-            <div class="recharge_button"></div>
+            <div id="rechargeButton" class="recharge_button"></div>
     	</div>
     </div>
     </body>
-    <script type="text/javascript">
-        window.onload = function(){
-            var winHeight = window.screen.height;
-            var div = document.getElementById("container");
-            div.style.width="100%";
-            div.style.height=winHeight + "px";
-        }
-	</script>
 </html>

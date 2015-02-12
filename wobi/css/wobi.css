@@ -1,4 +1,4 @@
-body{
+body {
 	margin: 0;
 }
 
@@ -21,7 +21,11 @@ body{
 	width:10%;
 	height:100%;
 	background-image: url("../images/accountsdk_2_charge_ad_btn_close.png");
-	background-repeat: round;
+	background-size: 100% 100%;
+}
+
+.toolbar .recharge_close_button:active {
+	background-image: url("../images/accountsdk_2_charge_ad_btn_close_press.png");
 }
 
 .content {
@@ -36,7 +40,100 @@ body{
 	height:100%;
 	display:block;
 	background-image: url("../images/accountsdk_2_charge_ad_bg.png");
-	background-repeat: round;
+	background-size: 100% 100%;
+}
+
+.recharge_agreement {
+	font-family: 黑体;
+	position: relative;
+	left: 10px;
+	z-index: 100;
+	top: -62%;
+	width: 100%;
+	height: 6%;
+	white-space: nowrap;
+}
+
+.recharge_agreement_content {
+	float: left;
+	width: 50%;
+	height: 100%;
+	display: block;
+}
+
+.recharge_agreement_tip {
+	float: right;
+	width: 50%;
+	height: 100%;
+	display: block;
+}
+
+.recharge_agreement_content span, .recharge_agreement_tip span {
+	display: block;
+	height: 100%;
+	width: 100%;
+	font-size: 0.75em;
+	line-height: 185%;
+}
+
+.recharge_agreement_checkbox {
+	float: left;
+	width: 14%;
+	height: 100%;
+	display: block;
+	background-image: url("../images/accountsdk_2_charge_ad_cb_unset.png");
+	background-size: 100% 100%;
+}
+
+.recharge_agreement_content span {
+	text-decoration: underline;
+	text-align: center;
+}
+
+.recharge_content_text {
+	position: relative;
+	z-index: 100;
+	top: -60%;
+}
+
+.content_text_title {
+	font-weight: bolder;
+}
+
+.content_text_title,.content_text_desc {
+	font-family: 黑体;
+	text-align: center;
+	margin-top: 1.5%;
+	font-size: 0.9375em;
+}
+
+.content_text_detail {
+	width: 55%;
+	height: 100%;
+	margin: auto;
+	margin-top: 1.3%;
+}
+
+.content_text_detail_item {
+	width: 47%;
+	float: left;
+	margin-left: 3%;
+}
+
+.content_text_detail_item_right {
+	float: right;
+	text-align: right;
+}
+
+.detail_normal {
+	font-size: 0.7em;
+	font-family: 黑体;
+	color: rgb(72,56,4);
+}
+
+.detail_special {
+	font-size: 0.9em;
+	color: rgb(83,15,16);
 }
 
 .footer {
@@ -52,5 +149,9 @@ body{
 	margin-top:3.5%;
 	display:block;
 	background-image: url("../images/accountsdk_2_charge_ad_btn_action.png");
-	background-repeat: round;
+	background-size: 100% 100%;
+}
+
+.footer .recharge_button:active {
+	background-image: url("../images/accountsdk_2_charge_ad_btn_action_press.png");
 }
