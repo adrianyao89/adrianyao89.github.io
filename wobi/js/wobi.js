@@ -2,7 +2,7 @@ window.onload = function(){
     var winHeight = window.screen.height;
     var winWidth = window.screen.width;
     var div = document.getElementById("container");
-    div.style.width=winWidth + "px";
+    div.style.width="100%";
     div.style.height=winWidth*1.5 + "px";
     
     var fontSize = winWidth/320 * 16; 
