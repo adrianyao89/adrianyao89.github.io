@@ -1,16 +1,7 @@
 window.onload = function(){
-    var winHeight = window.screen.height;
     var winWidth = window.screen.width;
-    var div = document.getElementById("container");
-    div.style.width="100%";
-    div.style.height=winWidth*1.5 + "px";
-    
     var fontSize = winWidth/320 * 16; 
-    div.style.fontSize=fontSize + "px";
-
-    alert(winWidth);
-    alert(winHeight);
-
+    document.getElementById("container").style.fontSize=fontSize + "px";
     var isCheck = false;
     var checkBox = document.getElementById("rechargeAgreementCheckbox");
     checkBox.onclick = function() {
@@ -30,5 +21,4 @@ window.onload = function(){
     document.getElementById("closeButton").onclick = function() {
         window.uniaccount.closeButton();
     };
-
-}
+};

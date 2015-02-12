@@ -1,5 +1,9 @@
 body {
 	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0);
 }
 
 .clearfix:before,
@@ -11,6 +15,11 @@ body {
 }
 .clearfix:after {clear: both;}
 .clearfix {zoom: 1;} /* IE < 8 */
+
+#container {
+	width: 100%;
+	height: 100%;
+}
 
 .toolbar {
 	height: 6.5%;
@@ -38,7 +47,6 @@ body {
 .content .recharge_content {
 	width:100%;
 	height:100%;
-	display:block;
 	background-image: url("../images/accountsdk_2_charge_ad_bg.png");
 	background-size: 100% 100%;
 }
@@ -51,7 +59,6 @@ body {
 	top: -62%;
 	width: 100%;
 	height: 6%;
-	white-space: nowrap;
 }
 
 .recharge_agreement_content {
@@ -72,8 +79,9 @@ body {
 	display: block;
 	height: 100%;
 	width: 100%;
-	font-size: 0.75em;
+	font-size: 0.65em;
 	line-height: 185%;
+	color: rgb(72,56,4);
 }
 
 .recharge_agreement_checkbox {
@@ -132,7 +140,7 @@ body {
 }
 
 .detail_special {
-	font-size: 0.9em;
+	font-size: 0.88em;
 	color: rgb(83,15,16);
 }
 
