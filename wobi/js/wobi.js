@@ -17,7 +17,7 @@ window.onload = function(){
             checkBox.style.backgroundImage="url('images/accountsdk_2_charge_ad_cb_set.png')";
         }
         isCheck = !isCheck;
-        window.uniaccount.onShowNextTimeChanged(isCheck);
+        window.uniaccount.onSkipNextTimeChanged(isCheck);
     };
 
     document.getElementById("rechargeButton").onclick = function() {
