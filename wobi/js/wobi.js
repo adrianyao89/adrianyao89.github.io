@@ -9,9 +9,7 @@ function effectiveDeviceWidth() {
 window.onload = function(){
     var winWidth = effectiveDeviceWidth();
     var fontSize = winWidth/320 * 16; 
-	alert(winWidth);
-	alert(fontSize);
-    document.getElementById("container").style.fontSize=fontSize + "px";
+    document.getElementsByTagName("html")[0].style.fontSize=fontSize + "px";
     var isCheck = false;
     var checkBox = document.getElementById("rechargeAgreementCheckbox");
     checkBox.onclick = function() {

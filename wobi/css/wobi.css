@@ -61,7 +61,6 @@ body {
 .recharge_agreement {
 	font-family: 黑体;
 	position: relative;
-	left: 10px;
 	z-index: 100;
 	top: -62%;
 	width: 100%;
@@ -86,7 +85,7 @@ body {
 	display: block;
 	height: 100%;
 	width: 100%;
-	font-size: 0.65em;
+	font-size: 0.65rem;
 	line-height: 185%;
 	color: rgb(72,56,4);
 }
@@ -119,7 +118,7 @@ body {
 	font-family: 黑体;
 	text-align: center;
 	margin-top: 1.5%;
-	font-size: 0.9375em;
+	font-size: 0.9375rem;
 }
 
 .content_text_detail {
@@ -141,13 +140,13 @@ body {
 }
 
 .detail_normal {
-	font-size: 0.7em;
+	font-size: 0.7rem;
 	font-family: 黑体;
 	color: rgb(72,56,4);
 }
 
 .detail_special {
-	font-size: 0.88em;
+	font-size: 0.88rem;
 	color: rgb(83,15,16);
 }
 
