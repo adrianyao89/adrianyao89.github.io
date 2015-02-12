@@ -1,5 +1,6 @@
 function effectiveDeviceWidth() {
-  var deviceWidth = window.screen.width;
+  //var deviceWidth = window.screen.width;
+  var deviceWidth = window.orientation == 0 ? window.screen.width : window.screen.height;
   if (navigator.userAgent.indexOf('Android') >= 0 && window.devicePixelRatio) {
     deviceWidth = deviceWidth / window.devicePixelRatio;
   }
