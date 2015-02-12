@@ -8,6 +8,9 @@ window.onload = function(){
     var fontSize = winWidth/320 * 16; 
     div.style.fontSize=fontSize + "px";
 
+    alert(winWidth);
+    alert(winHeight);
+
     var isCheck = false;
     var checkBox = document.getElementById("rechargeAgreementCheckbox");
     checkBox.onclick = function() {
