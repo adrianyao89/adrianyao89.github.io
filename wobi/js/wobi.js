@@ -9,7 +9,9 @@ function effectiveDeviceWidth() {
 
 function setFontSize() {
     var winWidth = window.innerWidth;
-    var fontSize = winWidth/320 * 16; 
+    var fontSize = winWidth/320 * 16;
+    alert(winWidth);
+    alert(fontSize);
     document.getElementsByTagName("html")[0].style.fontSize=fontSize + "px";
 }
 
