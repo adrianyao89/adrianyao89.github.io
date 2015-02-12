@@ -7,10 +7,15 @@ function effectiveDeviceWidth() {
   return deviceWidth;
 }
 
-window.onload = function(){
-    var winWidth = effectiveDeviceWidth();
+function setFontSize() {
+    var winWidth = window.innerWidth;
     var fontSize = winWidth/320 * 16; 
     document.getElementsByTagName("html")[0].style.fontSize=fontSize + "px";
+}
+
+window.onload = function(){
+ //   var winWidth = effectiveDeviceWidth();
+    setFontSize();
     var isCheck = false;
     var checkBox = document.getElementById("rechargeAgreementCheckbox");
     checkBox.onclick = function() {
@@ -30,4 +35,8 @@ window.onload = function(){
     document.getElementById("closeButton").onclick = function() {
         window.uniaccount.onClose();
     };
+
+    window.addEventListener('orientationchange', function() {  
+        setTimeout("setFontSize()", 300);  
+    }, false); 
 };
