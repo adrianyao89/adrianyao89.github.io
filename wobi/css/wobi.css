@@ -118,7 +118,7 @@ body {
 	font-family: 黑体;
 	text-align: center;
 	margin-top: 1.5%;
-	font-size: 0.9375rem;
+	font-size: 0.9rem;
 }
 
 .content_text_detail {
@@ -140,13 +140,13 @@ body {
 }
 
 .detail_normal {
-	font-size: 0.7rem;
+	font-size: 0.6rem;
 	font-family: 黑体;
 	color: rgb(72,56,4);
 }
 
 .detail_special {
-	font-size: 0.88rem;
+	font-size: 0.75rem;
 	color: rgb(83,15,16);
 }
 
