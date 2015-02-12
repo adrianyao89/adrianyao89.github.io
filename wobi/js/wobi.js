@@ -1,15 +1,4 @@
-function effectiveDeviceWidth() {
-  var deviceWidth = window.orientation == 0 ? window.screen.width : window.screen.height;
-  if (navigator.userAgent.indexOf('Android') >= 0 && window.devicePixelRatio) {
-    deviceWidth = deviceWidth / window.devicePixelRatio;
-  }
-  return deviceWidth;
-}
-
 window.onload = function(){
-    var winWidth = effectiveDeviceWidth();
-    var fontSize = winWidth/320 * 16; 
-    document.getElementById("container").style.fontSize=fontSize + "px";
     var isCheck = false;
     var checkBox = document.getElementById("rechargeAgreementCheckbox");
     checkBox.onclick = function() {
