@@ -9,6 +9,8 @@ function effectiveDeviceWidth() {
 window.onload = function(){
     var winWidth = effectiveDeviceWidth();
     var fontSize = winWidth/320 * 16; 
+	alert(winWidth);
+	alert(fontSize);
     document.getElementById("container").style.fontSize=fontSize + "px";
     var isCheck = false;
     var checkBox = document.getElementById("rechargeAgreementCheckbox");
@@ -27,6 +29,6 @@ window.onload = function(){
     };
 
     document.getElementById("closeButton").onclick = function() {
-        window.uniaccount.closeButton();
+        window.uniaccount.onClose();
     };
 };
