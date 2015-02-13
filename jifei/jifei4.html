@@ -37,23 +37,48 @@ body {
     margin: auto;
 }
 
+.star_bar {
+    width: 45%;
+    height: 11%;
+    margin: auto;
+    position: relative;
+    top: 38%;
+}
+
+.star {
+    width: 26%;
+    height: 100%;
+    float: left;
+    margin-left: 6%;
+}
+
+.star_full {
+    background-image: url("images/star2.png");
+    background-size: 100% 100%;
+}
+
+.star_empty {
+    background-image: url("images/star.png");
+    background-size: 100% 100%; 
+}
+
 .pay_content {
     font-family: 微软雅黑,黑体;
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     position: relative;
-    top: 42%;
+    top: 43%;
     color: white;
 }
 
 .pay_content span {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: rgb(252, 176, 15);
 }
 
 .pay_agreement {
     position: relative;
-    top: 58%;
+    top: 68%;
     text-align: center;
     font-size: 0.95rem;
     font-family: 微软雅黑,黑体;
@@ -71,13 +96,13 @@ body {
 .recharge_button {
     width: 46%;
     height: 100%;
-    background-image: url("images/btn_01.png");
+    background-image: url("images/btn_01c.png");
     background-size: 100% 100%;
     float: left;
 }
 
 .recharge_button:active {
-    background-image: url("images/btn_01_press.png");
+    background-image: url("images/btn_01c_press.png");
 }
 
 .return_button {
@@ -95,13 +120,13 @@ body {
     <body>
     <div id="container">
         <div class="content">
-            <div class="pay_content">
-                订购1元会员包,<br/>
-                即享<span>85折</span>话费支付优惠,<br/>
-                立订立减
+            <div class="star_bar">
+                <div class="star star_full"></div>
+                <div class="star star_empty"></div>
+                <div class="star star_empty"></div>
             </div>
-            <div class="pay_agreement">
-                规则详情
+            <div class="pay_content">
+                当前活动：再买<span>2</span>次即<span>免费</span><br>赠送该道具一次
             </div>
         </div>
         <div class="footer">
