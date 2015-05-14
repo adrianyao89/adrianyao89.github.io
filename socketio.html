@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+var socket =  io.connect('http://127.0.0.1:9092');
+
+function logM(data){
+	if (console) {
+		console.log(data);
+	} else {
+		alert(data);
+	}
+}
+
+socket.on('connect', function() {
+	logM('connect')
+	
+});
+
+socket.on('message', function(data) {
+    logM("message")
+    logM(data);
+});
+
+socket.on('high', function(data) {
+	logM('high');
+    logM(data);
+});
+
+socket.on('disconnect', function() {
+	logM('disconnect');
+});
+socket.emit('someevent', { my: 'data' });
+</script>
+</body>
+</html>
