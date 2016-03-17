@@ -11,7 +11,7 @@ $(document).ready(function(){
 
 	$WS.connect({
 		key: socketKey,
-		url: "ws://192.157.229.101:8080/webchat/cbus",
+		url: "ws://www.unstudy.cn:8080/webchat/cbus",
 		onopen: function(event) {
 			
 		},
